@@ -125,6 +125,8 @@ class ProjectObj {
         let distance = Math.sqrt((xmouse - this.position.x)*(xmouse - this.position.x)+(ymouse - this.position.y)*(ymouse - this.position.y))
         if(distance < 400 && distance > 300){
             window.open(this.link,'_blank')
+        }else{
+            player.velocity.y -= 3
         }
 
     }  
@@ -477,6 +479,30 @@ addEventListener('keydown',({keyCode})=>{
     }
 })  
 
+let touchX = ''
+let touchsold = 30
+addEventListener('touchstart',(event)=>{
+    touchX = event.changedTouches[0].pageX
+})
+addEventListener('touchmove',(event)=>{
+    const swapdistancex = event.changedTouches[0].pageX - touchX;
+    if(swapdistancex < touchsold){
+        keys.right.pressed = true
+        keys.left.pressed = false
+        currentKey = "right"
+    }else{
+        keys.right.pressed = false
+        keys.left.pressed = true
+        currentKey = "left"
+    }
+})
+
+addEventListener('touchend',(event)=>{
+    keys.right.pressed = false;
+    keys.left.pressed = false
+})
+
+
 addEventListener('keyup',({keyCode})=>{
     switch (keyCode) {
         case 87:
@@ -485,8 +511,7 @@ addEventListener('keyup',({keyCode})=>{
             keys.right.pressed = false
             break;
         case 65: 
-            keys.left.pressed = false
-          
+            keys.left.pressed = false     
             break;
         default:
             break;
