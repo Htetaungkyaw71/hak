@@ -12,6 +12,7 @@ import github from "./img/github.png"
 import football from "./img/football1.png"
 import airplane from "./img/airplane.png"
 import css from "./img/css1.png"
+import text from "./img/ntxt.png"
 import js from "./img/js.png"
 import python from "./img/python.png"
 import skills from "./img/skills.png"
@@ -257,6 +258,7 @@ function getImg(img){
 
 function init(){    
     player = new Player()
+  
     platforms = [
         new Platform({x:-1,y:500,image:getImg(platform)}),
         new Platform({x:580 -5 ,y:500,image:getImg(platform)}),
@@ -282,14 +284,8 @@ function init(){
         new AnimateObj({x:580 * 7.5 - 75,y:-300,image:getImg(js)}),
         new AnimateObj({x:580 * 8 - 80,y:-300,image:getImg(python)}),
     ]
-     
-    generic_obj = [new GenericObject({x:-1 ,y:-1,image:getImg(background)})]
-    small_objs = [
-        new SmallObj({x:580 *  2  - 10,y:380,image:getImg(platformSmallTall)}),
-        new SmallObj({x:580 *  6  - 60,y:380,image:getImg(platformSmallTall)}),
-        new SmallObj({x:580 *  9  - 90,y:380,image:getImg(platformSmallTall)}),
-    ]
     text_objs = [
+        new TextObj({x:370,y:290,image:getImg(text)}),
         new TextObj({x:400,y:140,image:getImg(name)}),
         new TextObj({x:580 * 15.5 - 155 ,y:140,image:getImg(thank)}),
         new TextObj({x:580 *  2  - 10,y:160,image:getImg(about)}),
@@ -297,8 +293,17 @@ function init(){
         new TextObj({x:580 *  9  - 90,y:160,image:getImg(projects)}),
         new TextObj({x:580 *  3  - 30,y:130,image:getImg(live)}),
         new TextObj({x:580 *  4.5  - 45,y:170,image:getImg(football)}),
-        new TextObj({x:580 *  14  - 140,y:125,image:getImg(contact)})
+        new TextObj({x:580 *  14  - 140,y:125,image:getImg(contact)}),
+  
     ]
+     
+    generic_obj = [new GenericObject({x:-1 ,y:-1,image:getImg(background)})]
+    small_objs = [
+        new SmallObj({x:580 *  2  - 10,y:380,image:getImg(platformSmallTall)}),
+        new SmallObj({x:580 *  6  - 60,y:380,image:getImg(platformSmallTall)}),
+        new SmallObj({x:580 *  9  - 90,y:380,image:getImg(platformSmallTall)}),
+    ]
+
 
 
     projects_objs = [
