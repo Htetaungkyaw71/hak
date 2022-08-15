@@ -12,7 +12,7 @@ import github from "./img/github.png"
 import football from "./img/football1.png"
 import airplane from "./img/airplane.png"
 import css from "./img/css1.png"
-import text from "./img/ntxt.png"
+import text from "./img/txt.png"
 import js from "./img/js.png"
 import python from "./img/python.png"
 import skills from "./img/skills.png"
@@ -126,7 +126,8 @@ class ProjectObj {
         let distance = Math.sqrt((xmouse - this.position.x)*(xmouse - this.position.x)+(ymouse - this.position.y)*(ymouse - this.position.y))
         if(distance < 400 && distance > 300){
             window.open(this.link,'_blank')
-        }else{
+        }
+        else{
             player.velocity.y -= 3
         }
 
@@ -293,8 +294,6 @@ function init(){
         new TextObj({x:580 *  9  - 90,y:160,image:getImg(projects)}),
         new TextObj({x:580 *  3  - 30,y:130,image:getImg(live)}),
         new TextObj({x:580 *  4.5  - 45,y:170,image:getImg(football)}),
-        new TextObj({x:580 *  14  - 140,y:125,image:getImg(contact)}),
-  
     ]
      
     generic_obj = [new GenericObject({x:-1 ,y:-1,image:getImg(background)})]
@@ -311,6 +310,7 @@ function init(){
         new ProjectObj({x:580 *  10.8  - 108,y:120,image:getImg(ask),link:"https://askme-sigma.vercel.app/"}),
         new ProjectObj({x:580 *  11.6  - 116,y:120,image:getImg(ide),link:"https://htetaungkyaw71.github.io/Online-IDE/"}),
         new ProjectObj({x:580 *  12.4  - 124,y:120,image:getImg(github),link:"https://github.com/Htetaungkyaw71"}),
+        new ProjectObj({x:580 *  14  - 140,y:125,image:getImg(contact),link:"mailto:htetaung200071@gmail.com"}),
     ]
   
 
@@ -468,7 +468,7 @@ function animate(){
 
 addEventListener('keydown',({keyCode})=>{
     switch (keyCode) {
-        case 87:
+        case 32:
             player.velocity.y -= 15
             break;
         case 68:
@@ -488,6 +488,7 @@ let touchX = ''
 let touchsold = 30
 addEventListener('touchstart',(event)=>{
     touchX = event.changedTouches[0].pageX
+    
 })
 addEventListener('touchmove',(event)=>{
     const swapdistancex = event.changedTouches[0].pageX - touchX;
@@ -510,7 +511,7 @@ addEventListener('touchend',(event)=>{
 
 addEventListener('keyup',({keyCode})=>{
     switch (keyCode) {
-        case 87:
+        case 32:
             break;
         case 68:
             keys.right.pressed = false
